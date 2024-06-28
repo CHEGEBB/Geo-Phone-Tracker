@@ -1,10 +1,7 @@
-Certainly! Below is a detailed README.md file template for your Phone Number Locator script, including step-by-step instructions, installation of requirements from `requirements.txt`, and how to set up the API key in `.env`. I've added emojis for clarity and organization:
-
-```markdown
-# Phone Number Locator 🌍📞
+# GeoTracker.py 🌍📞
 
 ## Overview
-This Python script allows you to locate the geographical coordinates and service provider of a phone number using the OpenCage Geocoder API and Phonenumbers library.
+GeoTracker.py is a Python script that helps you locate the geographical coordinates and service provider of a phone number using the OpenCage Geocoder API and Phonenumbers library.
 
 ### Features
 - Retrieve location and service provider details of any international phone number.
@@ -19,9 +16,8 @@ Before running the script, ensure you have:
 ## Installation
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/yourusername/phonenum-locator.git
-   cd phonenum-locator
-   ```
+   git clone https://github.com/yourusername/Geo-Phone-Tracker.git
+   cd Geo-Phone-Tracker
 
 2. Install dependencies using pip:
    ```bash
