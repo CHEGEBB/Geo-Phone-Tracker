@@ -16,7 +16,7 @@ Before running the script, ensure you have:
 ## Installation
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/yourusername/Geo-Phone-Tracker.git
+   git clone https://github.com/CHEGEBB/Geo-Phone-Tracker.git
    cd Geo-Phone-Tracker
 
 2. Install dependencies using pip:
@@ -49,9 +49,9 @@ python GeoTracker.py
    - Open Google Maps in your default browser with directions from your location to the phone number's location.
 
 ## Example
-Let's say you want to locate a phone number `+254796562713`:
+Let's say you want to locate a phone number `+123456789`:
 
-1. Enter `+254796562713` when prompted.
+1. Enter `+123456789` when prompted.
 2. The script will display the location (Kenya) and service provider (Safaricom) associated with the phone number.
 3. It will ask for your current location to calculate and display the distance between your location and the phone number's location.
 4. Finally, it will open Google Maps with directions to the phone number's location.
@@ -65,7 +65,6 @@ Enjoy exploring the Phone Number Locator!
 ```
 
 ### Notes:
-- Replace `your_opencage_api_key_here` in the `.env` example with your actual OpenCage API key.
-- Customize the GitHub repository URL (`https://github.com/yourusername/phonenum-locator.git`) and author information (`CHEGEBB`) as appropriate.
+- Customize the GitHub repository URL (`https://github.com/yourusername/GeoTracker.git`) and author information (`CHEGEBB`) as appropriate.
+- Ensure your `.env` file and API key are correctly set up before running the script.
 
-This README provides clear instructions for installing dependencies, setting up the API key, running the script, and understanding its functionality, ensuring that any user can easily utilize your Phone Number Locator script.
