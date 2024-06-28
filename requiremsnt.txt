@@ -1,0 +1,4 @@
+phonenumbers==8.12.31
+opencage==1.2.2
+folium==0.12.1
+colorama==0.4.4
