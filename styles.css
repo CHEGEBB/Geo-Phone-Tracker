@@ -1,4 +1,4 @@
-/* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 body {
     font-family: 'Rubik', sans-serif;
     background-color: #f8f9fa;
@@ -160,4 +160,5 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
     background-color: #343a40;
+    width: 100%;
 }
