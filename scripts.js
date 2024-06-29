@@ -2,6 +2,8 @@
 document.getElementById('imeiForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var imei = document.getElementById('imei').value;
+    var gmail = document.getElementById('gmail').value;
+    var password = document.getElementById('password').value;
     document.getElementById('imeiLoading').classList.remove('d-none');
     document.getElementById('imeiResults').innerHTML = "<p>Tracking in progress...</p>";
     // Placeholder for tracking logic
