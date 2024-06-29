@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost Phone Tracker</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css/animate.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Load Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
-    <!-- Load custom scripts -->
-    <script src="scripts.js" defer></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -23,7 +22,13 @@
                     <a class="nav-link" href="#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
+                    <a class="nav-link" href="#home">Track with IMEI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#mobile">Track with Phone Number</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#partners">Partners</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
@@ -63,7 +68,7 @@
                     </form>
                 </div>
                 <div class="col-lg-6 d-flex align-items-center">
-                    <img src="https://via.placeholder.com/400" class="img-fluid rounded border border-light" alt="Phone Image">
+                    <div id="map" class="map"></div>
                 </div>
             </div>
         </div>
@@ -71,10 +76,10 @@
 
     <div id="mobile" class="section bg-secondary text-light">
         <div class="container">
-            <h2 class="text-center mb-5">Track with Mobile Number</h2>
+            <h2 class="text-center mb-5">Track with Phone Number</h2>
             <div class="row">
-                <div class="col-lg-6 d-flex align-items-center">
-                    <img src="https://via.placeholder.com/400" class="img-fluid rounded border border-light" alt="Phone Image">
+                <div class="col-lg-6 d-flex align-items-center order-lg-2">
+                    <div id="mobileMap" class="map"></div>
                 </div>
                 <div class="col-lg-6">
                     <form id="mobileForm" action="#">
@@ -96,11 +101,11 @@
             <h2 class="text-center mb-5">Our Partners</h2>
             <div class="partner-list d-flex justify-content-around">
                 <div class="partner">
-                    <img src="https://via.placeholder.com/150" alt="Google" class="img-fluid">
+                    <img src="https://source.unsplash.com/150x150/?google" alt="Google" class="img-fluid">
                     <p>Google Maps API</p>
                 </div>
                 <div class="partner">
-                    <img src="https://via.placeholder.com/150" alt="OpenCage" class="img-fluid">
+                    <img src="https://source.unsplash.com/150x150/?opencage" alt="OpenCage" class="img-fluid">
                     <p>OpenCage API</p>
                 </div>
                 <!-- Add more partners as needed -->
@@ -119,9 +124,11 @@
         </div>
     </footer>
 
-    <!-- Bootstrap and custom scripts -->
+    <!-- Leaflet JS and custom scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="scripts.js" defer></script>
 </body>
 </html>

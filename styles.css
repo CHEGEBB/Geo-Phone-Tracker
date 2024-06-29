@@ -75,3 +75,9 @@ body {
 .partner-list .partner:hover {
     transform: scale(1.05); /* Scale up on hover */
 }
+
+.map {
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
