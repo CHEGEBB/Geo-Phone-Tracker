@@ -5,30 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost Phone Tracker</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css/animate.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+    <!-- Custom scripts -->
+    <script src="scripts.js" defer></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">Lost Phone Tracker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Track with IMEI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#mobile">Track with Phone Number</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#partners">Partners</a>
+                    <a class="nav-link" href="#features">Features</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
@@ -37,98 +35,140 @@
         </div>
     </nav>
 
-    <div id="about" class="section">
-        <div class="container">
-            <h2>About</h2>
-            <p>This website helps you track lost phones using IMEI, phone number, Gmail, and password to access Google Find My Device. It integrates with Google Maps and OpenCage API for accurate location services.</p>
+    <header id="home" class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-10 align-self-end">
+                    <h1 class="text-uppercase text-white font-weight-bold">Track Lost Phones with Ease</h1>
+                    <hr class="divider my-4">
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 font-weight-light mb-5">Enter the IMEI or phone number to locate your device instantly.</p>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#features">Find Out More</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <div id="home" class="section bg-primary text-light">
+    <section id="features" class="page-section bg-primary text-white">
         <div class="container">
-            <h2 class="text-center mb-5">Track with IMEI</h2>
+            <h2 class="text-center mt-0">Features</h2>
+            <hr class="divider light my-4">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="fas fa-4x fa-globe text-white mb-4"></i>
+                        <h3 class="h4 mb-2">Global Tracking</h3>
+                        <p class="text-white-50 mb-0">Track devices anywhere around the globe using advanced GPS technology.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="fas fa-4x fa-lock text-white mb-4"></i>
+                        <h3 class="h4 mb-2">Secure Access</h3>
+                        <p class="text-white-50 mb-0">Securely access device location using Gmail credentials with encryption.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="fas fa-4x fa-map-marker-alt text-white mb-4"></i>
+                        <h3 class="h4 mb-2">Interactive Maps</h3>
+                        <p class="text-white-50 mb-0">View device location on interactive maps with real-time updates.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="fas fa-4x fa-cogs text-white mb-4"></i>
+                        <h3 class="h4 mb-2">Customizable Settings</h3>
+                        <p class="text-white-50 mb-0">Customize tracking settings to suit personal or organizational needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="track-imei" class="page-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-black mt-0">Track with IMEI</h2>
+                    <hr class="divider my-4">
                     <form id="imeiForm" action="#">
                         <div class="form-group">
-                            <label for="imei" class="text-light">IMEI:</label>
-                            <input type="text" class="form-control" id="imei" placeholder="Enter IMEI" required>
+                            <input type="text" class="form-control form-control-lg" id="imei" placeholder="Enter IMEI" required>
                         </div>
                         <div class="form-group">
-                            <label for="gmail" class="text-light">Gmail:</label>
-                            <input type="email" class="form-control" id="gmail" placeholder="Enter Gmail" required>
+                            <input type="email" class="form-control form-control-lg" id="gmail" placeholder="Enter Gmail" required>
                         </div>
                         <div class="form-group">
-                            <label for="password" class="text-light">Password:</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+                            <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter Password" required>
                         </div>
-                        <button type="submit" class="btn btn-light btn-lg btn-block">Track</button>
-                        <div id="imeiLoading" class="loading-animation d-none text-light mt-3"></div>
-                        <div id="imeiResults" class="results text-light mt-3"></div>
+                        <button type="submit" class="btn btn-primary btn-xl">Track</button>
+                        <div id="imeiLoading" class="loading-animation d-none mt-3"></div>
+                        <div id="imeiResults" class="results mt-3"></div>
                     </form>
                 </div>
-                <div class="col-lg-6 d-flex align-items-center">
-                    <div id="map" class="map"></div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div id="mapImei" class="map-container"></div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="mobile" class="section bg-secondary text-light">
+    <section id="track-mobile" class="page-section bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Track with Phone Number</h2>
-            <div class="row">
-                <div class="col-lg-6 d-flex align-items-center order-lg-2">
-                    <div id="mobileMap" class="map"></div>
-                </div>
-                <div class="col-lg-6">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-black mt-0">Track with Mobile Number</h2>
+                    <hr class="divider my-4">
                     <form id="mobileForm" action="#">
                         <div class="form-group">
-                            <label for="phoneNumber" class="text-light">Phone Number:</label>
-                            <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter Phone Number" required>
+                            <input type="tel" class="form-control form-control-lg" id="phoneNumber" placeholder="Enter Phone Number" required>
                         </div>
-                        <button type="submit" class="btn btn-light btn-lg btn-block">Track</button>
-                        <div id="mobileLoading" class="loading-animation d-none text-light mt-3"></div>
-                        <div id="mobileResults" class="results text-light mt-3"></div>
+                        <button type="submit" class="btn btn-primary btn-xl">Track</button>
+                        <div id="mobileLoading" class="loading-animation d-none mt-3"></div>
+                        <div id="mobileResults" class="results mt-3"></div>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div id="partners" class="section bg-dark text-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Our Partners</h2>
-            <div class="partner-list d-flex justify-content-around">
-                <div class="partner">
-                    <img src="https://source.unsplash.com/150x150/?google" alt="Google" class="img-fluid">
-                    <p>Google Maps API</p>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div id="mapMobile" class="map-container"></div>
                 </div>
-                <div class="partner">
-                    <img src="https://source.unsplash.com/150x150/?opencage" alt="OpenCage" class="img-fluid">
-                    <p>OpenCage API</p>
-                </div>
-                <!-- Add more partners as needed -->
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer id="contact" class="section bg-primary text-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Contact Us</h2>
-            <ul class="list-unstyled text-center">
-                <li>Email: info@lostphonetracker.com</li>
-                <li>Phone: +1 234 567 890</li>
-                <li>Address: 123 Main St, Anytown, USA</li>
-            </ul>
+    <section id="contact" class="page-section bg-dark text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Contact Us</h2>
+            <p>Email: info@lostphonetracker.com</p>
+            <p>Phone: +1 234 567 890</p>
         </div>
-    </footer>
+    </section>
 
-    <!-- Leaflet JS and custom scripts -->
+    <!-- Leaflet Map Script -->
+    <script>
+        var mapImei = L.map('mapImei').setView([41.8781, -87.6298], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(mapImei);
+
+        var mapMobile = L.map('mapMobile').setView([41.8781, -87.6298], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(mapMobile);
+    </script>
+
+    <!-- Bootstrap and custom scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Custom JavaScript -->
     <script src="scripts.js" defer></script>
 </body>
 </html>
