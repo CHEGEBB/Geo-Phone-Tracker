@@ -1,6 +1,5 @@
 import phonenumbers
-from phonenumbers import geocoder as phonenumbers_geocoder
-from phonenumbers import carrier
+from phonenumbers import geocoder as phonenumbers_geocoder, carrier
 from opencage.geocoder import OpenCageGeocode
 import webbrowser
 import math
@@ -74,33 +73,36 @@ def menu():
 def locate_phone_number():
     print(Fore.BLUE + "\nLocate Phone Number:")
     number = input("Enter phone number in international format (e.g., +123456789): ")
-    new_number = phonenumbers.parse(number)
-    location = phonenumbers_geocoder.description_for_number(new_number, "en")
-    print(f"\nLocation based on phone number: {Fore.GREEN}{location}{Style.RESET_ALL}")
-    service_name = carrier.name_for_number(new_number, "en")
-    print(f"Service provider: {Fore.BLUE}{service_name}{Style.RESET_ALL}")
-    geocoder_client = OpenCageGeocode(key)
-    query = str(location)
-    print("\nLocating the target coordinates...")
-    result = geocoder_client.geocode(query)
-    if result and len(result):
-        target_lat = result[0]['geometry']['lat']
-        target_lng = result[0]['geometry']['lng']
-        print(f"Target coordinates: {Fore.GREEN}{target_lat}, {target_lng}{Style.RESET_ALL}")
-        print(Fore.BLUE + "\nEnter your current location (city or address):" + Style.RESET_ALL)
-        user_location_input = input("Location: ")
-        print("\nLocating your current coordinates...")
-        user_lat, user_lng = get_coordinates(user_location_input, key)
-        if user_lat is not None and user_lng is not None:
-            print(f"Your current location: {Fore.GREEN}{user_location_input}{Style.RESET_ALL}")
-            distance = calculate_distance(user_lat, user_lng, target_lat, target_lng)
-            print(f"Distance to target location: {Fore.BLUE}{distance:.2f} km{Style.RESET_ALL}")
-            maps_url = f"https://www.google.com/maps/dir/{user_lat},{user_lng}/{target_lat},{target_lng}"
-            webbrowser.open(maps_url)
+    try:
+        new_number = phonenumbers.parse(number, None)
+        location = phonenumbers_geocoder.description_for_number(new_number, "en")
+        print(f"\nLocation based on phone number: {Fore.GREEN}{location}{Style.RESET_ALL}")
+        service_name = carrier.name_for_number(new_number, "en")
+        print(f"Service provider: {Fore.BLUE}{service_name}{Style.RESET_ALL}")
+        geocoder_client = OpenCageGeocode(key)
+        query = str(location)
+        print("\nLocating the target coordinates...")
+        result = geocoder_client.geocode(query)
+        if result and len(result):
+            target_lat = result[0]['geometry']['lat']
+            target_lng = result[0]['geometry']['lng']
+            print(f"Target coordinates: {Fore.GREEN}{target_lat}, {target_lng}{Style.RESET_ALL}")
+            print(Fore.BLUE + "\nEnter your current location (city or address):" + Style.RESET_ALL)
+            user_location_input = input("Location: ")
+            print("\nLocating your current coordinates...")
+            user_lat, user_lng = get_coordinates(user_location_input, key)
+            if user_lat is not None and user_lng is not None:
+                print(f"Your current location: {Fore.GREEN}{user_location_input}{Style.RESET_ALL}")
+                distance = calculate_distance(user_lat, user_lng, target_lat, target_lng)
+                print(f"Distance to target location: {Fore.BLUE}{distance:.2f} km{Style.RESET_ALL}")
+                maps_url = f"https://www.google.com/maps/dir/{user_lat},{user_lng}/{target_lat},{target_lng}"
+                webbrowser.open(maps_url)
+            else:
+                print(f"\nFailed to geocode the location: {Fore.RED}{user_location_input}{Style.RESET_ALL}")
         else:
-            print(f"\nFailed to geocode the location: {Fore.RED}{user_location_input}{Style.RESET_ALL}")
-    else:
-        print("\nFailed to geocode the target location.")
+            print("\nFailed to geocode the target location.")
+    except Exception as e:
+        print(f"Error locating phone number: {e}")
 
 def main():
     banner()
