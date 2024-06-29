@@ -1,0 +1,77 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.form-control {
+    background-color: #ffa500; /* Celestial orange */
+    color: #000; /* Text color */
+    border-radius: 10px;
+    border-color: #ffa500; /* Border color */
+}
+
+.btn-primary {
+    background-color: #ffa500; /* Celestial orange */
+    border-color: #ffa500; /* Border color */
+}
+
+.btn-primary:hover {
+    background-color: #ff8c00; /* Darker shade of orange */
+    border-color: #ff8c00;
+}
+
+.bg-primary {
+    background-color: #ffa500 !important; /* Celestial orange */
+}
+
+.bg-secondary {
+    background-color: #343a40 !important; /* Dark background */
+}
+
+.bg-dark {
+    background-color: #000 !important; /* Black background */
+}
+
+.text-light {
+    color: #fff !important; /* White text */
+}
+
+.results {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.loading-animation {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.partner-list .partner {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.partner-list .partner img {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.partner-list .partner:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
