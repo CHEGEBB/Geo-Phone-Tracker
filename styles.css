@@ -1,12 +1,26 @@
+/* Global styles */
 body {
     font-family: 'Rubik', sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    background-color: #f8f9fa;
 }
 
+.section-heading {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #343a40;
+}
+
+.section-subheading {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #6c757d;
+}
+
+/* Navigation bar */
 .navbar {
     background-color: rgba(0, 0, 0, 0.8) !important;
+    transition: background-color 0.3s;
 }
 
 .navbar-brand, .navbar-nav .nav-link {
@@ -22,6 +36,7 @@ body {
     color: #17a2b8 !important;
 }
 
+/* Masthead */
 .masthead {
     height: 100vh;
     background: url('https://source.unsplash.com/1600x900/?technology') center center no-repeat;
@@ -30,28 +45,36 @@ body {
 }
 
 .masthead h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
 }
 
 .masthead p {
     font-size: 1.5rem;
+    font-weight: lighter;
+    color: #f8f9fa;
 }
 
 .btn-xl {
-    font-size: 1.25rem;
-    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    padding: 1rem 2.5rem;
 }
 
+/* Features section */
 .page-section {
     padding: 100px 0;
 }
 
 .bg-primary {
     background-color: #007bff !important;
+    color: #fff;
 }
 
 .bg-light {
     background-color: #f8f9fa !important;
+    color: #343a40;
 }
 
 .bg-dark {
@@ -64,7 +87,7 @@ body {
 }
 
 .text-black {
-    color: #000 !important;
+    color: #343a40 !important;
 }
 
 .text-white-75 {
@@ -82,6 +105,12 @@ body {
     text-align: center !important;
 }
 
+/* Forms */
+.form-control {
+    border-radius: 8px;
+    border-color: #ced4da;
+}
+
 .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
@@ -90,11 +119,6 @@ body {
 .btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
-}
-
-.form-control {
-    border-radius: 8px;
-    border-color: #ced4da;
 }
 
 .loading-animation {
@@ -112,6 +136,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+/* Maps */
 .map-container {
     height: 400px;
     border-radius: 10px;
